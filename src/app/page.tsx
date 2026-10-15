@@ -4,7 +4,7 @@ import { MessageCircle, Send, LogOut, LoaderCircle, ShieldCheck, Wifi, Users } f
 import { isSupabaseConfigured, supabase } from '@/lib/supabase';
 type Profile={id:string;username:string;display_name:string;about?:string};
 type Chat={id:string;type:string;title:string|null;updated_at:string};
-type Message={id:string;conversation_id:string;sender_id:string;body:string;created_at:string};
+type Message={id:string;conversation_id:string;sender_id:string;body:string;created_at:string;deleted_at?:string|null};
 export default function Home(){
  const [session,setSession]=useState<any>(null),[profile,setProfile]=useState<Profile|null>(null),[email,setEmail]=useState(''),[password,setPassword]=useState(''),[name,setName]=useState(''),[username,setUsername]=useState(''),[signup,setSignup]=useState(false),[busy,setBusy]=useState(false),[notice,setNotice]=useState(''),[chats,setChats]=useState<Chat[]>([]),[active,setActive]=useState<Chat|null>(null),[messages,setMessages]=useState<Message[]>([]),[draft,setDraft]=useState(''),[searchTerm,setSearchTerm]=useState(''),[people,setPeople]=useState<Profile[]>([]),[startingChat,setStartingChat]=useState(false),[liveStatus,setLiveStatus]=useState('جاري الاتصال...');
  useEffect(()=>{if(!supabase)return;supabase.auth.getSession().then(({data})=>setSession(data.session));const {data:{subscription}}=supabase.auth.onAuthStateChange((_e,s)=>setSession(s));return()=>subscription.unsubscribe()},[]);
