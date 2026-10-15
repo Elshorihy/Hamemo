@@ -1,0 +1,12 @@
+{
+  "name": "Hamemo — Stay close",
+  "short_name": "Hamemo",
+  "description": "رسائلك ومحادثاتك في مكان واحد",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080d18",
+  "theme_color": "#080d18",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": []
+}
