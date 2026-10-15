@@ -1,4 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#080d18;color:#edf2fa;font-family:Arial,Tahoma,sans-serif}button,input{font:inherit}button{cursor:pointer}.panel{background:#101827;border:1px solid #243047;border-radius:18px}.field{width:100%;padding:13px 14px;border-radius:12px;border:1px solid #2a3850;background:#0b1220;color:#fff;outline:none}.field:focus{border-color:#36c6b2}.primary{background:#22b8a5;color:#05201e;border:0;border-radius:12px;padding:12px 16px;font-weight:700}.muted{color:#91a0b8}
+
+:root{color-scheme:dark;--bg:#080b14;--panel:rgba(17,23,39,.88);--line:rgba(148,163,184,.15);--muted:#8e9ab2;--mint:#70f0d2;--violet:#a78bfa}
+*{box-sizing:border-box}
+html{min-height:100%;background:var(--bg)}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 10% 0%,rgba(99,102,241,.16),transparent 36%),radial-gradient(ellipse at 90% 12%,rgba(45,212,191,.11),transparent 30%),#080b14;color:#f3f5fb;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif}
+button,input{font:inherit}button{cursor:pointer;transition:transform .18s ease,background .18s ease,border-color .18s ease}button:active{transform:scale(.985)}
+.app-shell{position:relative;isolation:isolate}
+.app-header{padding:16px 20px;border:1px solid var(--line);border-radius:24px;background:rgba(12,17,30,.68);backdrop-filter:blur(18px);box-shadow:0 12px 45px rgba(0,0,0,.15)}
+.brand-mark{background:linear-gradient(135deg,#70f0d2,#8b9cff);color:#08111d;box-shadow:0 0 28px rgba(112,240,210,.16)}
+.panel{background:linear-gradient(160deg,rgba(20,28,46,.96),rgba(12,17,29,.96));border:1px solid var(--line);border-radius:24px;box-shadow:0 18px 55px rgba(0,0,0,.19);backdrop-filter:blur(16px)}
+.sidebar{align-self:start;min-height:72vh}
+.chat-panel{border-color:rgba(148,163,184,.18);min-height:72vh}
+.field{width:100%;min-width:0;padding:13px 15px;border-radius:15px;border:1px solid rgba(148,163,184,.19);background:rgba(5,9,18,.72);color:#f8fafc;outline:none;transition:border-color .2s,box-shadow .2s}
+.field::placeholder{color:#74819b}
+.field:focus{border-color:rgba(112,240,210,.7);box-shadow:0 0 0 3px rgba(112,240,210,.09)}
+.primary{background:linear-gradient(135deg,#70f0d2,#7dd3fc);color:#08131c;border:0;border-radius:14px;padding:12px 17px;font-weight:800;box-shadow:0 7px 22px rgba(45,212,191,.1)}
+.primary:hover{filter:brightness(1.06)}
+.muted{color:var(--muted)}
+.chat-topbar{border-color:var(--line);background:rgba(6,10,19,.35)}
+.messages-area{background:radial-gradient(ellipse at 50% 0%,rgba(99,102,241,.06),transparent 50%);scrollbar-width:thin;scrollbar-color:#303b53 transparent}
+.message-bubble{position:relative;min-width:88px;padding:11px 14px;border:1px solid var(--line);box-shadow:0 5px 18px rgba(0,0,0,.12);overflow-wrap:anywhere;animation:messageIn .18s ease-out}
+.message-mine{margin-left:auto;margin-right:0;border-color:rgba(112,240,210,.16);background:linear-gradient(145deg,rgba(20,103,96,.72),rgba(17,68,75,.86));border-bottom-right-radius:6px}
+.message-theirs{margin-right:auto;margin-left:0;background:linear-gradient(145deg,rgba(35,43,64,.96),rgba(25,31,49,.96));border-bottom-left-radius:6px}
+.sender-name{font-size:12px;font-weight:800;color:var(--mint);margin-bottom:5px}
+.message-body{white-space:pre-wrap;line-height:1.65;font-size:14px}
+.chat-avatar{display:inline-grid;place-items:center;flex:0 0 44px;width:44px;height:44px;margin-left:12px;border:1px solid rgba(112,240,210,.2);border-radius:16px;background:linear-gradient(145deg,rgba(112,240,210,.15),rgba(167,139,250,.17));color:var(--mint);font-weight:900;font-size:17px}
+.chat-copy{min-width:0;flex:1}
+.sidebar button{transition:background .2s,border-color .2s}
+.sidebar button:hover{background:rgba(148,163,184,.07)}
+.sidebar .chat-copy .block{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.composer{border-color:var(--line);background:rgba(5,9,18,.4);align-items:center}
+.composer .field{flex:1}
+.app-footer{opacity:.8}
+@keyframes messageIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:767px){.app-shell{padding:12px!important}.app-header{margin-bottom:12px;padding:13px 14px;border-radius:20px}.app-header h1{font-size:21px}.app-header .text-xs{max-width:120px;text-align:left}.workspace{gap:12px}.sidebar{min-height:0;padding:13px}.chat-panel{min-height:62vh;min-height:62dvh;border-radius:21px}.messages-area{padding:13px}.message-bubble{max-width:91%;padding:10px 12px}.composer{padding:10px}.composer .primary{padding:12px 14px}.app-footer{margin-top:16px}.panel{border-radius:21px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
