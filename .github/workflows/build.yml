@@ -29,21 +29,30 @@ jobs:
         with:
           node-version: 24
       - run: npm install
-      - name: Normalize and verify Cloudflare credentials
+      - name: Validate Cloudflare credentials without exposing them
         env:
           RAW_CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           RAW_CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        shell: bash
         run: |
-          # Remove accidental spaces/newlines from copied GitHub secrets without printing them.
-          API_TOKEN="$(printf '%s' "$RAW_CLOUDFLARE_API_TOKEN" | tr -d '[:space:]')"
+          set -euo pipefail
+          API_TOKEN="$RAW_CLOUDFLARE_API_TOKEN"
           ACCOUNT_ID="$(printf '%s' "$RAW_CLOUDFLARE_ACCOUNT_ID" | tr -d '[:space:]')"
           if [ -z "$API_TOKEN" ] || [ -z "$ACCOUNT_ID" ]; then
             echo "::error::Missing CLOUDFLARE_API_TOKEN or CLOUDFLARE_ACCOUNT_ID repository secret."
             exit 1
           fi
+          if [[ "$API_TOKEN" =~ [[:space:]\"\'] ]] || [[ "$API_TOKEN" == *curl* ]] || [[ "$API_TOKEN" == *http* ]] || [[ "$API_TOKEN" == *Authorization* ]]; then
+            echo "::error::CLOUDFLARE_API_TOKEN is not a raw API token. Replace it with a newly created Cloudflare API token only; do not paste a curl command."
+            exit 1
+          fi
+          if [[ ! "$ACCOUNT_ID" =~ ^[A-Za-z0-9_-]+$ ]]; then
+            echo "::error::CLOUDFLARE_ACCOUNT_ID contains invalid characters. Copy the Account ID only."
+            exit 1
+          fi
           printf 'CLOUDFLARE_API_TOKEN=%s\n' "$API_TOKEN" >> "$GITHUB_ENV"
           printf 'CLOUDFLARE_ACCOUNT_ID=%s\n' "$ACCOUNT_ID" >> "$GITHUB_ENV"
-          echo "Cloudflare credentials are present; values were not printed."
+          echo "Cloudflare credential format checks passed; values were not printed."
       - name: Deploy latest app
         run: npm run deploy
         env:
