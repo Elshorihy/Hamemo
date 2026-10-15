@@ -2,38 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{color-scheme:dark;--bg:#080b14;--panel:rgba(17,23,39,.88);--line:rgba(148,163,184,.15);--muted:#8e9ab2;--mint:#70f0d2;--violet:#a78bfa}
+:root{color-scheme:dark;--bg:#070b13;--panel:#0d1422;--panel-2:#111b2b;--line:rgba(151,170,198,.13);--muted:#8b9ab0;--mint:#68e8cc;--blue:#7da7ff;--violet:#9b8cff}
 *{box-sizing:border-box}
-html{min-height:100%;background:var(--bg)}
-body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 10% 0%,rgba(99,102,241,.16),transparent 36%),radial-gradient(ellipse at 90% 12%,rgba(45,212,191,.11),transparent 30%),#080b14;color:#f3f5fb;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif}
-button,input{font:inherit}button{cursor:pointer;transition:transform .18s ease,background .18s ease,border-color .18s ease}button:active{transform:scale(.985)}
-.app-shell{position:relative;isolation:isolate}
-.app-header{padding:16px 20px;border:1px solid var(--line);border-radius:24px;background:rgba(12,17,30,.68);backdrop-filter:blur(18px);box-shadow:0 12px 45px rgba(0,0,0,.15)}
-.brand-mark{background:linear-gradient(135deg,#70f0d2,#8b9cff);color:#08111d;box-shadow:0 0 28px rgba(112,240,210,.16)}
-.panel{background:linear-gradient(160deg,rgba(20,28,46,.96),rgba(12,17,29,.96));border:1px solid var(--line);border-radius:24px;box-shadow:0 18px 55px rgba(0,0,0,.19);backdrop-filter:blur(16px)}
-.sidebar{align-self:start;min-height:72vh}
-.chat-panel{border-color:rgba(148,163,184,.18);min-height:72vh}
-.field{width:100%;min-width:0;padding:13px 15px;border-radius:15px;border:1px solid rgba(148,163,184,.19);background:rgba(5,9,18,.72);color:#f8fafc;outline:none;transition:border-color .2s,box-shadow .2s}
-.field::placeholder{color:#74819b}
-.field:focus{border-color:rgba(112,240,210,.7);box-shadow:0 0 0 3px rgba(112,240,210,.09)}
-.primary{background:linear-gradient(135deg,#70f0d2,#7dd3fc);color:#08131c;border:0;border-radius:14px;padding:12px 17px;font-weight:800;box-shadow:0 7px 22px rgba(45,212,191,.1)}
-.primary:hover{filter:brightness(1.06)}
+html{min-height:100%;background:var(--bg);scrollbar-color:#26364c transparent}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 7% -10%,rgba(94,112,255,.16),transparent 38%),radial-gradient(ellipse at 92% 5%,rgba(41,211,184,.09),transparent 32%),#070b13;color:#eef4ff;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif}
+button,input{font:inherit}button{cursor:pointer;transition:transform .18s ease,background .18s ease,border-color .18s ease,filter .18s ease}button:active{transform:scale(.985)}button:disabled{cursor:not-allowed;opacity:.55}
+.app-shell{position:relative;isolation:isolate;min-height:100dvh}
+.app-header{padding:15px 20px;border:1px solid var(--line);border-radius:23px;background:rgba(11,17,29,.78);backdrop-filter:blur(18px);box-shadow:0 16px 48px rgba(0,0,0,.17)}
+.brand-mark{background:linear-gradient(135deg,#68e8cc,#7da7ff);color:#07131c;box-shadow:0 0 30px rgba(104,232,204,.14)}
+.panel{background:linear-gradient(155deg,rgba(15,23,38,.98),rgba(10,16,28,.98));border:1px solid var(--line);border-radius:25px;box-shadow:0 22px 65px rgba(0,0,0,.2);backdrop-filter:blur(16px)}
+.sidebar{align-self:start;min-height:72vh;padding:18px!important}
+.chat-panel{border-color:rgba(151,170,198,.16);min-height:72vh;min-width:0;background:rgba(10,16,27,.97)}
+.field{width:100%;min-width:0;padding:13px 15px;border-radius:15px;border:1px solid rgba(151,170,198,.15);background:rgba(4,9,17,.78);color:#f8fafc;outline:none;transition:border-color .2s,box-shadow .2s}
+.field::placeholder{color:#71829c}.field:focus{border-color:rgba(104,232,204,.65);box-shadow:0 0 0 3px rgba(104,232,204,.08)}
+.primary{background:linear-gradient(135deg,#68e8cc,#82b5ff);color:#06141b;border:0;border-radius:14px;padding:12px 17px;font-weight:850;box-shadow:0 8px 22px rgba(45,212,191,.1)}.primary:hover{filter:brightness(1.07)}
 .muted{color:var(--muted)}
-.chat-topbar{border-color:var(--line);background:rgba(6,10,19,.35)}
-.messages-area{background:radial-gradient(ellipse at 50% 0%,rgba(99,102,241,.06),transparent 50%);scrollbar-width:thin;scrollbar-color:#303b53 transparent}
+.sidebar-heading{padding:2px 2px 16px;border-bottom:1px solid var(--line)}
+.profile-orb,.chat-peer-avatar{display:grid;place-items:center;flex:0 0 45px;width:45px;height:45px;border-radius:17px;border:1px solid rgba(104,232,204,.19);background:linear-gradient(145deg,rgba(104,232,204,.17),rgba(125,167,255,.15));color:var(--mint)}
+.icon-button{display:grid;place-items:center;border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:13px}.icon-button:hover{background:rgba(255,255,255,.07);color:#fff}
+.search-box{position:relative;align-items:center;gap:7px;padding:0 9px;border:1px solid var(--line);border-radius:16px;background:rgba(4,9,17,.64)}
+.search-box .field{padding:12px 3px;border:0;background:transparent;box-shadow:none;font-size:13px}
+.search-icon{flex-shrink:0;color:#72849d}.search-submit{display:grid;place-items:center;flex-shrink:0;width:34px;height:34px;border-radius:11px;background:rgba(104,232,204,.12);color:var(--mint)}
+.chat-avatar{display:inline-grid;place-items:center;flex:0 0 48px;width:48px;height:48px;margin-left:12px;border:1px solid rgba(104,232,204,.16);border-radius:17px;background:linear-gradient(145deg,rgba(104,232,204,.16),rgba(125,167,255,.18));color:#9af4e0;font-weight:900;font-size:17px}
+.chat-copy{min-width:0;flex:1}.sidebar button{transition:background .2s,border-color .2s}.sidebar .chat-copy .block{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.conversation-row{display:flex;align-items:center;border:1px solid transparent;min-height:75px;transition:background .18s,border-color .18s,transform .18s}
+.conversation-row:hover{background:rgba(145,165,195,.06)}.conversation-active{background:linear-gradient(100deg,rgba(104,232,204,.09),rgba(125,167,255,.06));border-color:rgba(104,232,204,.17)}
+.chat-topbar{border-color:var(--line);background:rgba(10,16,27,.92);padding:15px 18px!important;min-height:88px}
+.chat-topbar .chat-peer-avatar{width:43px;height:43px;flex-basis:43px;border-radius:15px;font-weight:900}
+.notification-toggle{padding:7px 10px;border-radius:10px;background:rgba(104,232,204,.07);white-space:nowrap}
+.messages-area{background:radial-gradient(ellipse at 50% 0%,rgba(99,102,241,.055),transparent 50%);scrollbar-width:thin;scrollbar-color:#2a3a52 transparent;padding:22px!important}
 .message-bubble{position:relative;min-width:88px;padding:11px 14px;border:1px solid var(--line);box-shadow:0 5px 18px rgba(0,0,0,.12);overflow-wrap:anywhere;animation:messageIn .18s ease-out}
-.message-mine{margin-left:auto;margin-right:0;border-color:rgba(112,240,210,.16);background:linear-gradient(145deg,rgba(20,103,96,.72),rgba(17,68,75,.86));border-bottom-right-radius:6px}
-.message-theirs{margin-right:auto;margin-left:0;background:linear-gradient(145deg,rgba(35,43,64,.96),rgba(25,31,49,.96));border-bottom-left-radius:6px}
-.sender-name{font-size:12px;font-weight:800;color:var(--mint);margin-bottom:5px}
-.message-body{white-space:pre-wrap;line-height:1.65;font-size:14px}
-.chat-avatar{display:inline-grid;place-items:center;flex:0 0 44px;width:44px;height:44px;margin-left:12px;border:1px solid rgba(112,240,210,.2);border-radius:16px;background:linear-gradient(145deg,rgba(112,240,210,.15),rgba(167,139,250,.17));color:var(--mint);font-weight:900;font-size:17px}
-.chat-copy{min-width:0;flex:1}
-.sidebar button{transition:background .2s,border-color .2s}
-.sidebar button:hover{background:rgba(148,163,184,.07)}
-.sidebar .chat-copy .block{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.composer{border-color:var(--line);background:rgba(5,9,18,.4);align-items:center}
-.composer .field{flex:1}
-.app-footer{opacity:.8}
-@keyframes messageIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:767px){.app-shell{padding:12px!important}.app-header{margin-bottom:12px;padding:13px 14px;border-radius:20px}.app-header h1{font-size:21px}.app-header .text-xs{max-width:120px;text-align:left}.workspace{gap:12px}.sidebar{min-height:0;padding:13px}.chat-panel{min-height:62vh;min-height:62dvh;border-radius:21px}.messages-area{padding:13px}.message-bubble{max-width:91%;padding:10px 12px}.composer{padding:10px}.composer .primary{padding:12px 14px}.app-footer{margin-top:16px}.panel{border-radius:21px}}
+.message-mine{margin-left:auto;margin-right:0;border-color:rgba(104,232,204,.15);background:linear-gradient(145deg,rgba(17,91,85,.83),rgba(16,59,70,.92));border-bottom-right-radius:6px}
+.message-theirs{margin-right:auto;margin-left:0;background:linear-gradient(145deg,rgba(30,43,63,.97),rgba(22,31,48,.98));border-bottom-left-radius:6px}
+.sender-name{font-size:12px;font-weight:800;color:var(--mint);margin-bottom:5px}.message-body{white-space:pre-wrap;line-height:1.7;font-size:14px}
+.composer{border-color:var(--line);background:rgba(7,12,21,.96);align-items:center;padding:14px!important;gap:10px!important}
+.composer .field{flex:1;border-radius:17px;padding:14px 16px}.composer .primary{display:grid;place-items:center;width:48px;height:48px;padding:0;border-radius:16px}
+.mobile-back,.mobile-nav{display:none}.app-footer{opacity:.7}
+@keyframes messageIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:768px){.workspace{align-items:stretch}.sidebar,.chat-panel{min-height:calc(100dvh - 190px)}.messages-area{max-height:calc(100dvh - 350px)}}
+@media(max-width:767px){
+ .app-shell{padding:0 0 82px!important}.app-shell:has(.workspace)>.app-header{display:none}
+ .app-header{margin:10px 12px 12px;padding:12px 14px;border-radius:19px}.app-header h1{font-size:20px}.app-header .text-xs{max-width:120px;text-align:left}
+ .workspace{display:block!important;margin:0!important;padding:0 10px 10px;min-height:calc(100dvh - 88px)}
+ .sidebar{min-height:calc(100dvh - 100px);padding:15px!important;border-radius:22px}
+ .chat-panel{min-height:calc(100dvh - 96px);height:calc(100dvh - 96px);height:calc(100dvh - 96px);border-radius:22px}
+ .mobile-list-open .chat-panel{display:none}.mobile-chat-open .sidebar{display:none}.mobile-back{display:grid;width:38px;height:38px;flex:0 0 38px}
+ .chat-topbar{min-height:76px;padding:12px!important;gap:8px}.chat-topbar .chat-peer-avatar{width:40px;height:40px;flex-basis:40px}
+ .chat-topbar .notification-toggle{font-size:11px;padding:7px 8px}
+ .messages-area{padding:14px 11px 18px!important;min-height:0}.message-bubble{max-width:88%;padding:10px 12px}.message-body{font-size:14px}
+ .composer{padding:10px!important;gap:8px!important}.composer .field{padding:13px 14px;font-size:14px}.composer .primary{width:46px;height:46px;flex:0 0 46px}
+ .mobile-nav{position:fixed;z-index:50;inset:auto 10px max(10px,env(safe-area-inset-bottom));display:flex;justify-content:space-around;gap:5px;padding:8px 7px;border:1px solid rgba(151,170,198,.18);border-radius:21px;background:rgba(12,19,32,.94);backdrop-filter:blur(20px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+ .mobile-nav button{display:flex;flex:1;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:48px;border-radius:14px;color:#8d9bb0;font-size:10px;font-weight:750}
+ .mobile-nav button svg{width:19px;height:19px}.mobile-nav .mobile-nav-active{background:rgba(104,232,204,.1);color:var(--mint)}
+ .app-footer{margin-top:8px!important;padding:0 12px 10px}
+ .panel{border-radius:22px}
+}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
