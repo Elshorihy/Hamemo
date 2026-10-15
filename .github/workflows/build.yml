@@ -29,19 +29,23 @@ jobs:
         with:
           node-version: 24
       - run: npm install
-      - name: Verify Cloudflare credentials are configured
+      - name: Normalize and verify Cloudflare credentials
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          RAW_CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          RAW_CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+          # Remove accidental spaces/newlines from copied GitHub secrets without printing them.
+          API_TOKEN="$(printf '%s' "$RAW_CLOUDFLARE_API_TOKEN" | tr -d '[:space:]')"
+          ACCOUNT_ID="$(printf '%s' "$RAW_CLOUDFLARE_ACCOUNT_ID" | tr -d '[:space:]')"
+          if [ -z "$API_TOKEN" ] || [ -z "$ACCOUNT_ID" ]; then
             echo "::error::Missing CLOUDFLARE_API_TOKEN or CLOUDFLARE_ACCOUNT_ID repository secret."
             exit 1
           fi
+          printf 'CLOUDFLARE_API_TOKEN=%s\n' "$API_TOKEN" >> "$GITHUB_ENV"
+          printf 'CLOUDFLARE_ACCOUNT_ID=%s\n' "$ACCOUNT_ID" >> "$GITHUB_ENV"
+          echo "Cloudflare credentials are present; values were not printed."
       - name: Deploy latest app
         run: npm run deploy
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           NEXT_PUBLIC_SUPABASE_URL: https://example.supabase.co
           NEXT_PUBLIC_SUPABASE_ANON_KEY: build-placeholder-key
