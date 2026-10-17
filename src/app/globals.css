@@ -249,3 +249,74 @@ body{background-color:#070b13;background-image:radial-gradient(ellipse at 12% 8%
  .mobile-nav button{padding:9px 4px!important}
 }
 @media(prefers-reduced-motion:reduce){.message-bubble{animation:none!important}}
+
+
+/* Hamemo V3 — clearly distinct visual layout */
+.app-shell{
+  background:
+    radial-gradient(ellipse at 0% 10%,rgba(0,224,190,.18),transparent 34%),
+    radial-gradient(ellipse at 100% 0%,rgba(99,102,241,.22),transparent 36%),
+    linear-gradient(145deg,#050914 0%,#091322 48%,#080d19 100%)!important;
+}
+.app-header{
+  max-width:1280px!important;
+  padding:20px 24px!important;
+  margin-bottom:26px!important;
+  border-radius:26px!important;
+  border:1px solid rgba(105,235,211,.22)!important;
+  background:linear-gradient(110deg,rgba(13,31,46,.96),rgba(12,18,36,.92))!important;
+  box-shadow:0 20px 55px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.06)!important;
+}
+.brand-mark{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#38f0c3 0%,#60a5fa 55%,#a78bfa 100%)!important;
+  box-shadow:0 0 0 6px rgba(56,240,195,.055),0 12px 32px rgba(56,240,195,.22)!important;
+}
+.app-header h1{letter-spacing:-.045em;text-shadow:0 0 26px rgba(56,240,195,.12)}
+.app-header p{letter-spacing:.04em}
+.workspace{gap:20px!important;max-width:1280px;margin-inline:auto!important}
+.panel{
+  border:1px solid rgba(123,160,201,.19)!important;
+  border-radius:28px!important;
+  background:linear-gradient(160deg,rgba(15,27,46,.98),rgba(7,14,27,.99))!important;
+  box-shadow:0 28px 85px rgba(0,0,0,.34),inset 0 1px rgba(255,255,255,.035)!important;
+}
+.sidebar{padding:20px!important}
+.sidebar-heading{padding:7px 4px 18px!important}
+.sidebar-heading h2,.sidebar-heading h3{letter-spacing:-.02em}
+.search-box{border-radius:17px!important;background:rgba(3,9,20,.72)!important;border-color:rgba(121,158,201,.18)!important;padding:5px 8px!important}
+.conversation-row{margin:5px 0;border-radius:18px!important;border:1px solid transparent!important;padding:13px!important;min-height:80px!important;background:rgba(255,255,255,.022)!important}
+.conversation-row:hover{border-color:rgba(125,211,252,.18)!important;background:rgba(125,211,252,.055)!important}
+.conversation-active{border-color:rgba(56,240,195,.3)!important;background:linear-gradient(110deg,rgba(56,240,195,.13),rgba(96,165,250,.09))!important;box-shadow:inset 4px 0 #38f0c3,0 10px 30px rgba(0,0,0,.16)!important}
+.conversation-row .chat-avatar,.chat-peer-avatar{border-radius:18px!important;background:linear-gradient(145deg,rgba(56,240,195,.22),rgba(96,165,250,.25),rgba(167,139,250,.18))!important;border-color:rgba(125,211,252,.25)!important}
+.chat-panel{overflow:hidden;border-radius:28px!important}
+.chat-topbar{min-height:88px;background:linear-gradient(100deg,rgba(15,30,49,.98),rgba(15,20,39,.98))!important;border-bottom:1px solid rgba(125,211,252,.14)!important}
+.messages-area{background-image:radial-gradient(circle at 50% 0%,rgba(56,240,195,.06),transparent 46%),linear-gradient(rgba(7,13,25,.18),rgba(7,13,25,.18))!important}
+.message-bubble{border-radius:21px!important;padding:13px 16px!important;box-shadow:0 9px 26px rgba(0,0,0,.2)!important}
+.message-mine{background:linear-gradient(135deg,#087f78,#155e75)!important;border:1px solid rgba(94,234,212,.24)!important;border-bottom-right-radius:7px!important}
+.message-theirs{background:linear-gradient(145deg,#1c2a43,#172238)!important;border:1px solid rgba(147,197,253,.13)!important;border-bottom-left-radius:7px!important}
+.composer{margin:0!important;border-top:1px solid rgba(125,211,252,.14)!important;background:rgba(5,12,23,.98)!important;padding:16px!important}
+.composer .field{min-height:52px!important;border-radius:18px!important;background:rgba(12,23,40,.95)!important}
+.primary{background:linear-gradient(120deg,#38f0c3,#60a5fa 70%,#a78bfa)!important;color:#06111d!important;border-radius:16px!important;box-shadow:0 10px 30px rgba(56,240,195,.17)!important}
+.icon-button{border-radius:15px!important;border-color:rgba(125,211,252,.17)!important}
+.mobile-nav{border:1px solid rgba(56,240,195,.22)!important;background:rgba(5,12,23,.96)!important;box-shadow:0 12px 45px rgba(0,0,0,.5),0 0 25px rgba(56,240,195,.06)!important}
+.mobile-nav-active{background:linear-gradient(120deg,rgba(56,240,195,.17),rgba(96,165,250,.13))!important}
+.settings-dialog{border:1px solid rgba(56,240,195,.25)!important;background:linear-gradient(150deg,#13243a,#080f1d)!important}
+@media(min-width:768px){
+ .workspace{grid-template-columns:340px minmax(0,1fr)!important}
+ .sidebar{height:calc(100dvh - 190px);max-height:calc(100dvh - 190px);border-radius:28px!important}
+ .chat-panel{min-height:calc(100dvh - 190px)!important}
+}
+@media(max-width:767px){
+ .app-shell{padding:10px 10px 90px!important}
+ .app-header{display:flex!important;margin:0 0 12px!important;padding:12px 14px!important;border-radius:22px!important}
+ .app-header h1{font-size:20px!important}
+ .app-header .text-xs{font-size:10px!important}
+ .workspace{padding:0!important;gap:12px!important}
+ .sidebar,.chat-panel{border-radius:23px!important}
+ .conversation-row{min-height:74px!important}
+ .chat-topbar{min-height:76px!important;padding:12px!important}
+ .messages-area{padding:14px!important}
+ .composer{padding:11px!important}
+ .mobile-nav{left:10px!important;right:10px!important;bottom:10px!important;border-radius:23px!important}
+}
