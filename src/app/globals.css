@@ -181,3 +181,71 @@ body{background-color:#070b13;background-image:radial-gradient(ellipse at 12% 8%
  .settings-profile-copy span{max-width:68vw}
 }
 @media(prefers-reduced-motion:reduce){.workspace,.mobile-list-open .sidebar,.mobile-chat-open .chat-panel,.settings-overlay,.settings-dialog{animation:none!important}}
+
+
+/* Hamemo Vercel visual refresh v2 — intentionally visible UI changes */
+.app-shell{
+  background:
+    radial-gradient(ellipse at 12% 0%,rgba(34,197,164,.13),transparent 32%),
+    radial-gradient(ellipse at 92% 8%,rgba(59,130,246,.12),transparent 28%),
+    #070d17!important;
+  color:#edf4ff;
+}
+.app-header{padding:15px 19px;border:1px solid rgba(148,163,184,.14);border-radius:24px;background:rgba(12,21,35,.82);box-shadow:0 14px 44px rgba(0,0,0,.18);backdrop-filter:blur(18px)}
+.brand-mark{background:linear-gradient(135deg,#39d6b1,#4c8dff)!important;color:#06121b;box-shadow:0 8px 26px rgba(57,214,177,.2)}
+.panel{border:1px solid rgba(148,163,184,.15)!important;background:linear-gradient(145deg,rgba(16,27,44,.97),rgba(9,16,28,.98))!important;box-shadow:0 24px 70px rgba(0,0,0,.24),inset 0 1px rgba(255,255,255,.025);border-radius:25px!important}
+.workspace{gap:16px!important;align-items:stretch}
+.sidebar{padding:17px!important}
+.sidebar-heading{padding:5px 3px 15px;border-bottom:1px solid rgba(148,163,184,.1)}
+.profile-orb,.chat-avatar,.chat-peer-avatar{background:linear-gradient(135deg,rgba(53,214,177,.22),rgba(83,137,255,.24))!important;border:1px solid rgba(92,221,198,.19);color:#a7f3e4}
+.icon-button{transition:background .18s ease,color .18s ease,transform .18s ease}
+.icon-button:hover{background:rgba(148,163,184,.12);color:#d8fff6;transform:translateY(-1px)}
+.field{background:rgba(4,10,19,.7)!important;border:1px solid rgba(148,163,184,.16)!important;color:#f1f5f9!important;border-radius:15px!important;outline:none;transition:border-color .18s,box-shadow .18s,background .18s}
+.field:focus{border-color:rgba(65,218,184,.58)!important;box-shadow:0 0 0 3px rgba(65,218,184,.09)!important;background:rgba(5,14,24,.98)!important}
+.search-box{align-items:center;padding:4px 6px 4px 10px;border:1px solid rgba(148,163,184,.12);border-radius:18px;background:rgba(4,10,19,.48)}
+.search-box .field{border:0!important;background:transparent!important;box-shadow:none!important}
+.search-submit{display:grid;place-items:center;flex:0 0 36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#38d9b4,#4c8dff);color:#06131d;transition:transform .18s}
+.search-submit:hover{transform:scale(1.04)}
+.conversation-row{display:flex!important;align-items:center;min-height:72px;border:1px solid transparent!important;background:rgba(255,255,255,.018);transition:background .2s,border-color .2s,transform .2s!important}
+.conversation-row:hover{background:rgba(148,163,184,.07)!important;transform:translateY(-1px)}
+.conversation-active{border-color:rgba(65,218,184,.2)!important;background:linear-gradient(100deg,rgba(53,214,177,.12),rgba(59,130,246,.055))!important;box-shadow:inset -3px 0 #41daba,0 10px 28px rgba(0,0,0,.12)!important}
+.conversation-row .chat-avatar{display:grid;place-items:center;width:45px;height:45px;flex:0 0 45px;border-radius:16px;font-weight:900}
+.chat-copy{min-width:0;flex:1}
+.chat-panel{min-height:calc(100dvh - 180px)!important}
+.chat-topbar{padding:17px 20px!important;background:rgba(14,24,40,.84);backdrop-filter:blur(14px);border-color:rgba(148,163,184,.11)!important}
+.chat-peer-avatar{display:grid;place-items:center;width:45px;height:45px;flex:0 0 45px;border-radius:16px;font-size:18px;font-weight:900}
+.messages-area{padding:22px!important;background:radial-gradient(ellipse at 50% 0%,rgba(59,130,246,.035),transparent 55%)}
+.message-bubble{position:relative;padding:12px 14px!important;border-radius:19px!important;box-shadow:0 6px 20px rgba(0,0,0,.12);animation:messageIn .18s ease-out both}
+.message-mine{border:1px solid rgba(61,218,181,.13);background:linear-gradient(145deg,rgba(18,105,94,.78),rgba(13,70,75,.9))!important;border-bottom-right-radius:6px!important}
+.message-theirs{border:1px solid rgba(148,163,184,.12);background:linear-gradient(145deg,#1a2639,#141e2e)!important;border-bottom-left-radius:6px!important}
+.message-body{line-height:1.75;overflow-wrap:anywhere}
+.sender-name{margin-bottom:5px;color:#79e5d0;font-size:11px;font-weight:800}
+.composer{align-items:center;padding:14px 16px!important;background:rgba(10,18,31,.92);border-color:rgba(148,163,184,.12)!important}
+.composer .field{min-height:48px;padding:12px 15px!important}
+.primary{min-height:45px;padding:0 17px;border-radius:15px!important;background:linear-gradient(135deg,#39d6b1,#5592ff)!important;color:#06131c!important;font-weight:900;box-shadow:0 8px 24px rgba(57,214,177,.13);transition:transform .18s,filter .18s}
+.primary:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.primary:disabled{opacity:.45;box-shadow:none}
+.mobile-nav{border:1px solid rgba(148,163,184,.16)!important;background:rgba(9,17,29,.94)!important;box-shadow:0 -12px 40px rgba(0,0,0,.28);backdrop-filter:blur(18px)}
+.mobile-nav button{border-radius:15px}
+.mobile-nav-active{background:rgba(57,214,177,.12)!important;color:#77e9d3!important}
+.app-footer{opacity:.68}
+.settings-dialog{border-color:rgba(65,218,184,.2)!important}
+@keyframes messageIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:768px){.workspace{grid-template-columns:330px minmax(0,1fr)!important}.sidebar{position:sticky;top:16px;height:calc(100dvh - 180px);max-height:calc(100dvh - 180px)}}
+@media(max-width:767px){
+ .app-shell{padding:10px 10px 88px!important}
+ .app-header{margin-bottom:12px!important;padding:11px 12px;border-radius:20px}
+ .brand-mark{width:42px!important;height:42px!important;border-radius:14px!important}
+ .app-header h1{font-size:21px!important}
+ .workspace{gap:10px!important}
+ .panel{border-radius:21px!important}
+ .sidebar{padding:13px!important}
+ .chat-panel{min-height:calc(100dvh - 95px)!important}
+ .chat-topbar{padding:13px!important}
+ .messages-area{padding:13px!important}
+ .message-bubble{max-width:91%!important;padding:10px 12px!important}
+ .composer{padding:10px!important}
+ .mobile-nav{position:fixed;z-index:50;left:10px;right:10px;bottom:10px;border-radius:22px!important;padding:7px!important}
+ .mobile-nav button{padding:9px 4px!important}
+}
+@media(prefers-reduced-motion:reduce){.message-bubble{animation:none!important}}
