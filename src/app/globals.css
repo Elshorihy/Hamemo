@@ -320,3 +320,14 @@ body{background-color:#070b13;background-image:radial-gradient(ellipse at 12% 8%
  .composer{padding:11px!important}
  .mobile-nav{left:10px!important;right:10px!important;bottom:10px!important;border-radius:23px!important}
 }
+
+
+/* Composer emoji picker */
+.composer{position:relative;gap:10px!important}
+.emoji-composer-wrap{position:relative;flex:0 0 auto}
+.emoji-toggle{display:grid;place-items:center;width:48px;height:48px;border:1px solid rgba(104,232,204,.2);border-radius:16px;background:rgba(104,232,204,.08);color:#68e8cc}
+.emoji-toggle:hover{background:rgba(104,232,204,.16);transform:translateY(-1px)}
+.emoji-composer-picker{position:absolute;z-index:70;right:0;bottom:calc(100% + 12px);display:grid;grid-template-columns:repeat(8,minmax(30px,1fr));gap:3px;width:min(304px,calc(100vw - 44px));max-height:235px;overflow:auto;padding:10px;border:1px solid rgba(104,232,204,.24);border-radius:18px;background:#0b1423;box-shadow:0 20px 55px rgba(0,0,0,.48)}
+.emoji-composer-picker button{display:grid;place-items:center;min-width:0;min-height:34px;border:0;border-radius:9px;background:transparent;font-size:21px}
+.emoji-composer-picker button:hover{background:rgba(104,232,204,.13);transform:scale(1.08)}
+@media(max-width:480px){.emoji-toggle{width:42px;height:46px;border-radius:14px}.emoji-composer-picker{grid-template-columns:repeat(7,minmax(30px,1fr));right:-4px}}
